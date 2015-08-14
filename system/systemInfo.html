@@ -1,0 +1,87 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>OpenMRS Extension</title>
+    <style>
+	   body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+
+		width: 600px;
+        max-width: 800px;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+	<script src="../jquery.min.js"></script>
+	<script src="../jstorage.min.js"></script>	
+    <script src="../popup.js"></script>
+	<link rel="stylesheet" type="text/css" href="../resources/css/styles.css"/>
+	<script src="systemInfo.js"></script>
+  </head>
+
+  <body>
+   <div id="status">
+   <div class="info_head" style="border:1px solid  #009D8E;">
+	 	<div style="background: #009D8E; width:'100%';border:1px solid  #009D8E;">
+			<font color="#ffffff" size="4pt">
+				<b>Operating System</b>
+			</font>
+		</div>
+		<div id='os_info'>
+			<p>
+			<b>Name : </b><b id='os_name'></b><br>
+			<b>Architecture : </b><b id='os_arch'></b><br>
+			<b>Version : </b><b id='os_ver'></b><br>
+			</p>
+  		</div>
+	</div>
+	<div class="info_head" style="border:1px solid  #009D8E;">
+	 	<div style="background: #009D8E; width:'100%';border:1px solid  #009D8E;">
+			<font color="#ffffff" size="4pt">
+				<b>JVM Info</b>
+			</font>
+		</div>
+		<div id='vm_info'>
+			<p>
+			<b>Name : </b><b id='jvm_name'></b><br>
+			<b>Vendor : </b><b id='jvm_vendor'></b><br>
+			<b>Version : </b><b id='jvm_ver'></b><br>
+			</p>
+  		</div>
+	</div>
+	<div class="info_head" style="border:1px solid  #009D8E;">
+	 	<div style="background: #009D8E; width:'100%';border:1px solid  #009D8E;">
+			<font color="#ffffff" size="4pt">
+				<b>Processor</b>
+			</font>
+		</div>
+		<div id='process_info'>
+			<p>
+			<b>Processor Count : </b><b id='processor_count'></b><br>
+			</p>
+  		</div>
+	</div>
+	<div align="center">
+	<br>
+	<a href="..\popup.html">
+		<input type="button" name="track_button" id="track_button" value="Back" class="view_indicator"/>
+	</a>
+	</div>
+	</div>
+  </body>
+  <script src="..\afterLoad.js"></script>
+</html>
